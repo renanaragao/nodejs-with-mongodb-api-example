@@ -1,0 +1,6 @@
+docker build -t api-herois .
+docker run -p 3000:3000 --link mongodb:mongodb -e MONGO_URL=mongodb api-herois
+docker run -d --name mongodb mongo:3.5
+docker logs -f <id_container>
+
+docker stop $(docker ps -a -q)
