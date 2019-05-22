@@ -4,3 +4,13 @@ docker run -d --name mongodb mongo:3.5
 docker logs -f <id_container>
 
 docker stop $(docker ps -a -q)
+
+### Docker register
+docker login
+docker build -t renanaragao/api-herois:v1 .
+docker push renanaragao/api-herois:v1
+
+### AZ CLI
+az account set --subscription "<nome>"
+az group create --name k8s-curso --location eastus
+az acr create --resource-group k8s-curso --name k8simagens --sku Basic
