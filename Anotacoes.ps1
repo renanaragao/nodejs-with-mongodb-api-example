@@ -21,10 +21,33 @@ az acr login --name refimagens
 az acr list --resource-group k8s-curso --output table
 docker tag renanaragao/api-herois:v1 refimagens.azurecr.io/api-herois:v1
 docker push refimagens.azurecr.io/api-herois:v1
+az acr credential show -n refimagens --query passwords[0].value
 
 ### Contianer Services
 az container create --resource-group k8s-curso `
    --name mongodb --image mongo:3.5 `
    --cpu 1 --memory 1 `
    --port 27017 `
-   --ip-adress public
+   --ip-address public
+az container logs --resource-group k8s-curso --name mongodb
+az container show --resource-group k8s-curso --name mongodb --query ipAddress.ip
+az container create --resource-group k8s-curso `
+   --name api-herois --image refimagens.azurecr.io/api-herois:v1 `
+   --cpu 1 --memory 1 `
+   --port 3000 `
+   --environment-variables MONGO_URL=52.191.216.12 `
+   --registry-username refimagens `
+   --registry-password 42/HMspgt/kv2jrqEUcbTQr2h86OJ4+Z `
+   --ip-address public
+
+### AKS
+az aks create -g k8s-curso `
+    --name refcluster `
+    --dns-name-prefix refcluster `
+    --generate-ssh-keys `
+    --node-count 2
+az aks install-cli
+az aks get-credentials --resource-group k8s-curso --name refcluster
+kubectl get nodes
+kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+az aks browse --resource-group k8s-curso --name refcluster
