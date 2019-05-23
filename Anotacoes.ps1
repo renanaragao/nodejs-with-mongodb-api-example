@@ -1,7 +1,7 @@
 docker build -t api-herois .
 docker run -p 3000:3000 --link mongodb:mongodb -e MONGO_URL=mongodb api-herois
 docker run -d --name mongodb mongo:3.5
-docker logs -f <id_container>
+docker logs -f api-herois
 
 docker stop $(docker ps -a -q)
 
@@ -16,10 +16,15 @@ az group create --name k8s-curso --location eastus
 
 ### AZ ACR - Registrar container
 az acr create --resource-group k8s-curso --name refimagens --sku Basic
-
-refimagens.azurecr.io
-
+"refimagens.azurecr.io"
 az acr login --name refimagens
 az acr list --resource-group k8s-curso --output table
 docker tag renanaragao/api-herois:v1 refimagens.azurecr.io/api-herois:v1
 docker push refimagens.azurecr.io/api-herois:v1
+
+### Contianer Services
+az container create --resource-group k8s-curso `
+   --name mongodb --image mongo:3.5 `
+   --cpu 1 --memory 1 `
+   --port 27017 `
+   --ip-adress public
