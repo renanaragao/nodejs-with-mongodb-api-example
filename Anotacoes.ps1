@@ -85,3 +85,6 @@ kubectl create secret docker-registry acr-credentials \
     --docker-password=42/HMspgt/kv2jrqEUcbTQr2h86OJ4+Z \
     --docker-email=refaragao@gmail.com
 kubectl get secret
+
+### Replicasets
+kubectl apply -f # para atualizar pods já existentes
