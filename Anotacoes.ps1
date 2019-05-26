@@ -88,3 +88,13 @@ kubectl get secret
 
 ### Replicasets
 kubectl apply -f # para atualizar pods já existentes
+
+### Service - Interativo (serviço é quando ele está exposto)
+kubectl get svc #svc é alias para service
+kubectl delete svc api-herois-5b9d6d7c85-9pp76
+kubectl expose -f 3.replicasets/herois-rc.json \
+    --port 4000 \
+    --type LoadBalancer \
+kubectl expose pod mongodb-b48794dd4-9xrfc \
+    --port 27017 \
+    --name mongo-svc
