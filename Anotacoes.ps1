@@ -98,3 +98,6 @@ kubectl expose -f 3.replicasets/herois-rc.json \
 kubectl expose pod mongodb-b48794dd4-9xrfc \
     --port 27017 \
     --name mongo-svc
+
+### Deployments
+kubectl delete pod -l app=api-herois
