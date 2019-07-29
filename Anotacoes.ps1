@@ -101,3 +101,8 @@ kubectl expose pod mongodb-b48794dd4-9xrfc \
 
 ### Deployments
 kubectl delete pod -l app=api-herois
+
+### Rolling Update
+
+kubectl rollout history deployment api-herois-deployment
+kubectl rollout status deployment api-herois-deployment

@@ -22,8 +22,8 @@ server.connection({ port });
       register: HapiSwagger,
       options: {
         info: {
-          title: 'Node.js with MongoDB Example - Erick Wendel',
-          version: '1.0',
+          title: 'ATUALIZADO v6 - Node.js with MongoDB Example',
+          version: '6.0',
         },
       },
     },
