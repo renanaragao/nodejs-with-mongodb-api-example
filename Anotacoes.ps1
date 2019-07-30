@@ -106,3 +106,8 @@ kubectl delete pod -l app=api-herois
 
 kubectl rollout history deployment api-herois-deployment
 kubectl rollout status deployment api-herois-deployment
+kubectl rollout undo deployment api-herois-deployment --to-revision 3 ### voltar uma versão
+kubectl rollout pause deployment api-herois-deployment
+kubectl rollout resume deployment api-herois-deployment
+
+kubectl edit deployment api-herois-deployment --record ### editar arquivo de deploy
