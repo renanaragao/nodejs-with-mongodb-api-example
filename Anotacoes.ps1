@@ -89,7 +89,7 @@ kubectl get secret
 ### Replicasets
 kubectl apply -f # para atualizar pods já existentes
 
-### Service - Interativo (serviço é quando ele está exposto)
+### Service - Interativo (serviço é quando ele está exposto se usar o LoadBalancer, se não usar ele fica só dentro do cluster)
 kubectl get svc #svc é alias para service
 kubectl delete svc api-herois-5b9d6d7c85-9pp76
 kubectl expose -f 3.replicasets/herois-rc.json \
