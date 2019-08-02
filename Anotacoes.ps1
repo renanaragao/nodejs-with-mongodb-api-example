@@ -111,3 +111,7 @@ kubectl rollout pause deployment api-herois-deployment
 kubectl rollout resume deployment api-herois-deployment
 
 kubectl edit deployment api-herois-deployment --record ### editar arquivo de deploy
+
+###ingrees controller
+kubectl get ingress
+kubectl describe ingress demo-ingress

@@ -17,7 +17,7 @@ metadata:
   name: nginx-default-backend
 spec:
   replicas: 1
-  templates:
+  template:
     metadata:
       labels:
         app: nginx-default-backend
