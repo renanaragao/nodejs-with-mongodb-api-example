@@ -115,3 +115,7 @@ kubectl edit deployment api-herois-deployment --record ### editar arquivo de dep
 ###ingrees controller
 kubectl get ingress
 kubectl describe ingress demo-ingress
+
+### StatefulSet
+kubectl get sts
+kubectl describe sts mongodb
