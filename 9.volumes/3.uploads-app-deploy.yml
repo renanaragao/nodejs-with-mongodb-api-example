@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upload-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: upload-app-deployment
+  template:
+    metadata:
+      labels:
+        app: upload-app-deployment
+    spec:
+      containers:
+      - name: upload-app-deployment
+        image: erickwendel/k8s-upload-example-nodejs
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+          - name: uploads
+            mountPath: /src/uploads
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: uploads-pvc

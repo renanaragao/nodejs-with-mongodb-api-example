@@ -119,3 +119,7 @@ kubectl describe ingress demo-ingress
 ### StatefulSet
 kubectl get sts
 kubectl describe sts mongodb
+
+### Persistent Volume
+kubectl get pv
+kubectl get pvc

@@ -35,7 +35,7 @@
                 "terminationGracePeriodSeconds": 1,
                 "containers": [{
                     "name": "api-herois",
-                    "image": "refimagens.azurecr.io/api-herois:v6",
+                    "image": "renanaragao/api-herois:v1",
                     "imagePullPolicy": "Always",
                     "ports": [{
                         "containerPort": 4000

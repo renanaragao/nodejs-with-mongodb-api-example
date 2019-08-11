@@ -26,7 +26,7 @@
             "spec": {
                 "containers": [{
                     "name": "api-herois",
-                    "image": "refimagens.azurecr.io/api-herois:v1",
+                    "image": "renanaragao/api-herois:v1",
                     "ports": [{
                         "containerPort": 4000
                     }],
