@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name:  job-starwars
+spec:
+  parallelism: 2
+  completions: 5
+  backoffLimit: 4
+  template:
+    metadata:
+      name:  name
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: job-starwars
+          image: erickwendel/k8s-job-starwars-example
+          env:
+            - name: MONGO_URL
+              value: mongodb-svc

@@ -123,3 +123,7 @@ kubectl describe sts mongodb
 ### Persistent Volume
 kubectl get pv
 kubectl get pvc
+
+### Jobs e Cron Jobs - dica: crontab.guru
+kubectl get jobs
+kubectl get cronjobs
