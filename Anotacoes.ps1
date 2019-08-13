@@ -127,3 +127,15 @@ kubectl get pvc
 ### Jobs e Cron Jobs - dica: crontab.guru
 kubectl get jobs
 kubectl get cronjobs
+
+### Namespaces
+
+kubectl get namespaces
+kubectl create namespaces production
+kubectl create namespaces development
+
+kubectl --namespace development run nginx --image nginx
+kubectl get pods --namespace development
+kubectl config set-context $(kubectl config current-context) --namespace development # setar namespace padrão
+
+kubectl delete namespace development

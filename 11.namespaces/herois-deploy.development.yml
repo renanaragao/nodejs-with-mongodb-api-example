@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: development
+  name: api-herois-deployment
+  labels:
+    version: v1
+    app: api-herois
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      version: v1
+      app: api-herois
+  template:
+    metadata:
+      labels:
+        version: v1
+        app: api-herois
+    spec:
+      containers:
+        - name: api-herois
+          image: renanaragao/api-herois:v1
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MONGO_URL
+              value: mongodb-svc
+            - name: PORT
+              value: '4000'
+      imagePullSecrets:
+        - name: acr-credentials
