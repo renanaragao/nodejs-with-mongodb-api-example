@@ -139,3 +139,10 @@ kubectl get pods --namespace development
 kubectl config set-context $(kubectl config current-context) --namespace development # setar namespace padrão
 
 kubectl delete namespace development
+
+### Monitoramento com o OMS
+# Criar recurso de monitoramento no azure e alterar no oms.yml as keys
+kubectl create -f oms.yml
+kubectl get daemonsets
+kubectl describe daemonsets omsagent
+
