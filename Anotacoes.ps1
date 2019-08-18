@@ -146,3 +146,7 @@ kubectl create -f oms.yml
 kubectl get daemonsets
 kubectl describe daemonsets omsagent
 
+### kubernetes-retired kube dash
+kubectl create -f https://raw.githubusercontent.com/kubernetes-retired/kubedash/master/deploy/bundle.yaml
+
+
