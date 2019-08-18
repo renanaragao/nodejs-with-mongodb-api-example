@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-error
+  labels:
+    name: pod-error
+spec:
+  containers:
+  - name: pod-error
+    image: willwill/inexists
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 45
